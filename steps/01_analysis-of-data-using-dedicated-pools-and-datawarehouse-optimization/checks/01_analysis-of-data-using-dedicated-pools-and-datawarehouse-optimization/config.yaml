@@ -1,0 +1,6 @@
+title: SQL Script to create and load tables using dedicated SQL Pool
+internal_name: SQL Script to create and load tables using dedicated SQL Pool
+vendor: azure
+runtime: python3.8
+memory: 128
+timeout: 10
