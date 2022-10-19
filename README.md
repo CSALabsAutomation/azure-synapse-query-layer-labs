@@ -12,7 +12,7 @@ This is a deployment accelerator based on the reference architecture described i
 
 The scope of this deployment accelerator is illustrated in the diagram below.
 
-![Achitecture Components](./steps/01_analysis-of-data-using-dedicated-pools-and-datawarehouse-optimization/assets/synapse.JPG)
+![Achitecture Components](./steps/01_analysis-of-data-using-dedicated-pools-and-datawarehouse-optimization/assets/synapse.jpg)
 
 
 #### Synapse Analytics
