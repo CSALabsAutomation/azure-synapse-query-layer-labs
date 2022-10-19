@@ -1,6 +1,6 @@
-title: Migrating an On-Premise SQL Server to Azure SQL Manged Instance with Azure DMS
-slug: on-premise-sql-server-azure-sql-db
-short_description: Learn how to migrate from an On-Premise SQL Server to Azure SQL Manged Instance in this lab.
+title: Building high performance query layer in Azure Synapse Analytics
+slug: azure-synapse-query-layer-labs
+short_description: Building high performance query layer in Azure Synapse Analytics.
 lab_features: # cloud-environment|remote-desktop|cli|code-ide
   - cloud-environment
 duration: 3600
