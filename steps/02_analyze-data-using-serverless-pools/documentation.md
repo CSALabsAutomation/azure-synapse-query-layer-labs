@@ -1,5 +1,41 @@
 # Analyze data using serverless pools
 
+## Prerequisites:
+### Log-in to the Azure Portal
+1. In a new window, sign in to the **Azure Portal** (<https://portal.azure.com>).
+
+2.  In the **Resource groups** blade, navigate to created resource group and select the created  **Synapse Workspace**.
+
+   ![The Synapse Workspace is highlighted](./assets/01_Synapse.JPG "Select the synapse workspace")  
+   
+3. In the  **_Overview_** section of synapseworkspace select **_Open_** to open synapse studio.
+
+  ![ws](./assets/2_open_ws.jpg "open WS")
+
+### Note : Synapse Administrator access is already provided and below two steps are only for the learning and knowledge purpose
+
+1. If you dont have the Synapse Administrator access then synapse workspace will promt **Failed to load** message.
+
+![views](./assets/01_failed.JPG "view WS")
+    
+2.	To provide Synapse Administrator access In Synapse Studio, under  **_Manage_** tab, select **_Access Control_** and add yourself as the **_Synapse Administrator_**
+
+    ![Access](./assets/4_access.JPG "Access")
+    
+### Steps to generate secret key(will be used in Exercise later)
+   
+   1. In the resource group click on the raw storage account name. Also note down the raw storage account name for further references
+   
+   2. Select **container** from the left side navigation and click on **Raw**.
+   
+   3. Select **Shared access tokens** from the left side navigation and click on **Generate SAS token and URL**.
+     
+   ![sas](./assets/sas.JPG "sas")
+     
+   4. Copy **"Blob SAS token"** which can be used as secret key. for e.g.,
+     
+   ![token](./assets/token.JPG "token")
+
 ## Exercise 1 : Create Logical Data Warehouse with serverless SQL pool
 
 In this tutorial, you will learn how to create a Logical Data Warehouse (LDW) on top of Azure storage
@@ -13,16 +49,12 @@ LDW is a relational layer built on top of Azure data sources such as Azure Data 
 1. After opening Synapse Studio, navigate to **_Develop_** menu at left side, then select the **"+"** icon and choose SQL script.
      
      ![addSqlScript](./assets/04-add_sql_script.jpg "add sql script")
-
-2. Copy and paste the snippet on the place given below in SQL Scripts section
-
-3. Choose the specific serverless SQL pool(built-in) from the Connect to drop-down menu. Or  if necessary, database can be selected.
-
-4. In the properties section on the right pane renaming the script as  ``sql_create_external_table``
-
-5. Select the Run button to execute your SQL script and observe the results.
      
-     ![runSqlScript](./assets/04-run_sql_script.jpg "run sql script")
+2. Choose the specific serverless SQL pool(built-in) from the Connect to drop-down menu.
+
+3. In the properties section on the right pane renaming the script as  ``sql_create_external_table``
+
+4. Copy and paste the snippet on the place given below in SQL Scripts section
 
 ### Create an LDW database
 
@@ -34,20 +66,9 @@ CREATE DATABASE Ldw
 ```
 This collation will provide the optimal performance while reading Parquet and Cosmos DB. If you don't want to specify the database collation, make sure that you specify this collation in the column definition.
 
-### Steps to generate secret key
-   
-   1. In the resource group click on the raw storage account name.
-   
-   2. Select **container** from the left side navigation and click on **Raw**.
-   
-   3. Select **Shared access tokens** from the left side navigation and click on **Generate SAS token and URL**.
+5. Select the Run button to execute your SQL script and observe the results.
      
-   ![sas](./assets/sas.JPG "sas")
-     
-   4. Copy **"Blob SAS token"** which can be used as secret key.
-     
-   ![token](./assets/token.JPG "token")
- 
+     ![runSqlScript](./assets/04-run_sql_script.jpg "run sql script")
 
 ### Configure data sources and formats
 
@@ -55,8 +76,10 @@ As a prerequisite, you will need to create a master key in the database:
 
 change database to **Lwd** before executing below scripts.
 
+![ws](./assets/2_open_ws.jpg "open WS")
+
 ```sql
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Azure@123';
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Password@123';
  ```
 
 1. You need to configure data source and specify file format of remotely stored data, this will require to create a SCOPED CREDENTIAL
