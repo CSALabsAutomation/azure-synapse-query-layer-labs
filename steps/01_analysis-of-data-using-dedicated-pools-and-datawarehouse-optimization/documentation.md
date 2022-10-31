@@ -29,7 +29,7 @@ One Azure Active Directory account, either an individual or security group accou
      
    ![sas](./assets/sas.JPG "sas")
      
-   4. Copy **"Blob SAS token"** which can be used as secret key.
+   4. Copy **"Blob SAS token"** which can be used as secret key. for e.g.,
      
    ![token](./assets/token.JPG "token")
 
@@ -267,7 +267,7 @@ WITH
 
 1. In Workspace open **_Data_** from the left side navigation
 2. Expand **SQL database**
-3. Expand **EnterpriseDW (SQL)**
+3. Expand **EnterpriseDW (SQL)** (Refresh EnterpriseDW (SQL))
 4. Expand **Tables**
 5. Check the tables created.
 
@@ -320,11 +320,6 @@ In this section, you will use dedicated SQL Pool to load tables using the files 
   ![renameSQLScript](./assets/2_rename_load_script.JPG "rename script")
 
 5.  Replace the **azrawStorageAccount** placeholder with the **_``Raw storage account``_** name before running the below sql script. (ref prerequisite section)
-
-    ```sh
-    eg. https://azrawdatalakefa256z.dfs.core.windows.net/raw/date.csv
-    ```
-	
 6.  Replace **SAS SECRET KEY** placeholder with **"Blob SAS token"** (ref prerequisite section)
 7.  For loading the **Date** table run the below query.
 
@@ -437,7 +432,7 @@ OPTION (LABEL = 'COPY : Load [dbo].[Weather] - Taxi dataset');
 
 1. In Workspace open **Data** from the left side navigation.
 2. Expand **SQL database**.
-3. Expand **EnterpriseDW (SQL)**.
+3. Expand **EnterpriseDW (SQL)**. (Refresh EnterpriseDW (SQL))
 4. Expand **Tables**.
 5. Right click on any table then select **New SQL Script > Select TOP 100 Rows**.
 
