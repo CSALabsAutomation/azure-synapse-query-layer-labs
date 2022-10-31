@@ -22,7 +22,7 @@
 
     ![Access](./assets/4_access.JPG "Access")
     
-### Steps to generate SAS token(will be used in Exercise later)
+### Steps to generate secret key(will be used in Exercise later)
    
    1. In the resource group click on the raw storage account name. Also note down the raw storage account name for further references
    
