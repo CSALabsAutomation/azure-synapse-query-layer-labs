@@ -76,7 +76,7 @@ As a prerequisite, you will need to create a master key in the database:
 
 change database to **Lwd** before executing below scripts.
 
-![ws](./assets/2_open_ws.jpg "open WS")
+![sb](./assets/Select_DB_serverless.jpg "select DB")
 
 ```sql
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Password@123';
@@ -84,7 +84,7 @@ CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Password@123';
 
 1. You need to configure data source and specify file format of remotely stored data, this will require to create a SCOPED CREDENTIAL
 
-     Replace <secret-key> place holder with secret key generated above
+     Replace <secret-key> place holder with secret key generated above (ref prerequisite section)
 
      ```sql
      CREATE DATABASE SCOPED CREDENTIAL scpCred
@@ -102,7 +102,7 @@ CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Password@123';
 
 3. Create data source
 Data sources represent connection string information that describes where your data is placed and how to authenticate to your data source.
-Replace <rawstorageaccountName> place holder with the Raw strorage account name.
+Replace <rawstorageaccountName> place holder with the Raw strorage account name. (ref prerequisite section)
      
      ```sql
      CREATE EXTERNAL DATA SOURCE holiday_data WITH (
@@ -151,7 +151,7 @@ create external table holiday_adls.holiday (
 ```
 ### Validate External Table created
 
-1. Goto Data Tab --> Workspace --> SQL database
+1. Goto Data Tab --> Workspace --> SQL database (Refresh SQL databases)
 2. Expand Ldw Database
 3. Expand External tables
 4. Check for **holiday_adls.holiday**    
@@ -163,17 +163,19 @@ create external table holiday_adls.holiday (
 
 ### Authoring SQL Script and Run the SQL script:
 
-1.	After opening Synapse Studio, navigate to **_Develop_** menu at left side, then select the **"+"** icon and choose SQL script.
+1.	Again, navigate to **_Develop_** menu at left side, then select the **"+"** icon and choose SQL script.
      
      ![addSqlScript](./assets/04-add_sql_script.jpg "add sql script")
 
-1.	Copy and paste the snippet on the place given below in SQL Scripts section
+2.	Choose the specific serverless SQL pool(built-in) from the Connect to drop-down menu. Or  if necessary, database can be selected.
 
-1.	Choose the specific serverless SQL pool(built-in) from the Connect to drop-down menu. Or  if necessary, database can be selected.
+3.	In the properties section on the right pane renaming the script as  ``nyc_sql``
+   
+4.	Copy and paste the snippet on the place given below in SQL Scripts section
 
-1.	In the properties section on the right pane renaming the script as  ``nyc_sql``
+5. Replace <rawstorageaccountName> place holder with the Raw strorage account name in all the query. (ref prerequisite section)
 
-1.	Select the Run button to execute your SQL script and observe the results.
+6.	Select the Run button to execute your SQL script and observe the results.
      
      ![runSqlScript](./assets/04-run_sql_script.jpg "run sql script")
  
@@ -185,7 +187,7 @@ create external table holiday_adls.holiday (
 
 SELECT TOP 100 * FROM
     OPENROWSET(
-        BULK 'https:// azrawdatalakefa276z.dfs.core.windows.net/raw/yellow/puYear=*/puMonth=*/*.parquet',
+        BULK 'https://<rawstorageaccountName>.dfs.core.windows.net/raw/yellow/puYear=*/puMonth=*/*.parquet',
         FORMAT='PARQUET'
     )
     AS [nyc];
@@ -200,7 +202,7 @@ SELECT
     COUNT(*) AS rides_per_year
 FROM
     OPENROWSET(
-        BULK 'https://azrawdatalakefa276z.dfs.core.windows.net/raw/yellow/puYear=*/puMonth=*/*.parquet',
+        BULK 'https://<rawstorageaccountName>.dfs.core.windows.net/raw/yellow/puYear=*/puMonth=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [nyc]
 WHERE nyc.filepath(1) >= '2009' AND nyc.filepath(1) <= '2022'
@@ -217,7 +219,7 @@ SELECT
     COUNT(*) as rides_per_day
 FROM
     OPENROWSET(
-        BULK 'https://azrawdatalakefa276z.dfs.core.windows.net/raw/yellow/puYear=*/puMonth=*/*.parquet',
+        BULK 'https://<rawstorageaccountName>.dfs.core.windows.net/raw/yellow/puYear=*/puMonth=*/*.parquet',
         FORMAT='PARQUET'
     ) AS [nyc]
 WHERE nyc.filepath(1) = '2022'
