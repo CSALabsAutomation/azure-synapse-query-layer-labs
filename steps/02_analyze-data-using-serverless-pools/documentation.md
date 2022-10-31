@@ -173,7 +173,7 @@ create external table holiday_adls.holiday (
    
 4.	Copy and paste the snippet on the place given below in SQL Scripts section
 
-5. Replace <rawstorageaccountName> place holder with the Raw strorage account name in all the query. (ref prerequisite section)
+5. Replace the **rawstorageaccountName** placeholder with the **_``Raw storage account``_** name before running the below sql script. (ref prerequisite section)
 
 6.	Select the Run button to execute your SQL script and observe the results.
      
