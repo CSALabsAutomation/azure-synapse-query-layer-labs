@@ -400,7 +400,7 @@ OPTION (LABEL = 'COPY : Load [dbo].[Time] - Taxi dataset');
 
 ``` sql
 COPY INTO [dbo].[Trip]
-FROM 'https://<azrawStorageAccount>.dfs.core.windows.net/raw/Trip2013.csv'
+FROM 'https://<azrawStorageAccount>.dfs.core.windows.net/raw/Trip.csv'
 WITH
 (
    FILE_TYPE = 'CSV',
