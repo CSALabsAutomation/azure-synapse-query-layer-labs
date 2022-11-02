@@ -100,8 +100,7 @@ CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Password@123';
      CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = DELIMITEDTEXT );
      ```
 
-3. Create data source
-Data sources represent connection string information that describes where your data is placed and how to authenticate to your data source.
+3. Create data source represent connection string information that describes where your data is placed and how to authenticate to your data source.
 Replace <rawstorageaccountName> place holder with the Raw strorage account name. (ref prerequisite section)
      
      ```sql
