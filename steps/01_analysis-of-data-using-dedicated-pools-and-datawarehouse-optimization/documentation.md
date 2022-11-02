@@ -337,7 +337,7 @@ OPTION (LABEL = 'COPY : Load [dbo].[Date] - Taxi dataset');
 
 ```
 
-8.  For creating the **Geography** table run the below query.
+8.  For loading the **Geography** table run the below query.
 
 ``` sql
 COPY INTO [dbo].[Geography]
@@ -352,7 +352,7 @@ WITH
 OPTION (LABEL = 'COPY : Load [dbo].[Geography] - Taxi dataset');
 ```
 
-9. For creating the **HackneyLicense** table run the below query.
+9. For loading the **HackneyLicense** table run the below query.
 
 ``` sql
 COPY INTO [dbo].[HackneyLicense]
@@ -367,7 +367,7 @@ WITH
 OPTION (LABEL = 'COPY : Load [dbo].[HackneyLicense] - Taxi dataset');
 ```
 
-10. For creating the **Medallion** table run the below query.
+10. For loading the **Medallion** table run the below query.
 
 ``` sql
 COPY INTO [dbo].[Medallion]
@@ -381,7 +381,7 @@ WITH
 )
 OPTION (LABEL = 'COPY : Load [dbo].[Medallion] - Taxi dataset');
 ```
-11. For creating the **Time** table run the below query.
+11. For loading the **Time** table run the below query.
 
 ``` sql
 COPY INTO [dbo].[Time]
@@ -396,7 +396,7 @@ WITH
 OPTION (LABEL = 'COPY : Load [dbo].[Time] - Taxi dataset');
 ```
 
-12. For creating the **Trip** table run the below query.
+12. For loading the **Trip** table run the below query.
 
 ``` sql
 COPY INTO [dbo].[Trip]
@@ -411,7 +411,7 @@ WITH
 OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
 ```
 
-13. For creating the **Weather** table run the below query.
+13. For loading the **Weather** table run the below query.
 
 ``` sql
 COPY INTO [dbo].[Weather]
