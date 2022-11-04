@@ -74,7 +74,7 @@ This collation will provide the optimal performance while reading Parquet and Co
 
 As a prerequisite, you will need to create a master key in the database:
 
-change database to **Lwd** before executing below scripts.
+change database to **LDW** before executing below scripts.
 
 ![sb](./assets/Select_DB_serverless.jpg "select DB")
 
@@ -100,8 +100,7 @@ CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Password@123';
      CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = DELIMITEDTEXT );
      ```
 
-3. Create data source
-Data sources represent connection string information that describes where your data is placed and how to authenticate to your data source.
+3. Create data source represent connection string information that describes where your data is placed and how to authenticate to your data source.
 Replace <rawstorageaccountName> place holder with the Raw strorage account name. (ref prerequisite section)
      
      ```sql
