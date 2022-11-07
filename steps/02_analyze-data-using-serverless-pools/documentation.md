@@ -33,7 +33,7 @@
     
 ### Steps to generate secret key(will be used in Exercise later)
    
-   1. In the resource group click on the raw storage account name. Also note down the raw storage account name for further references
+   1. In the resource group click on the raw storage account name.
    
    2. Select **container** from the left side navigation and click on **Raw**.
    
