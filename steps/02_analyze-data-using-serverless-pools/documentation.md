@@ -9,8 +9,7 @@
    
    ![Note azure raw datalake storage account](./assets/rawlakestorage.jpg "rawstorageaccount")  
 
-### Log-in to the Azure Portal
-1. In a new window, sign in to the **Azure Portal** (<https://portal.azure.com>).
+### To open Synapse Workspace
 
 2.  In the **Resource groups** blade, navigate to created resource group and select the created  **Synapse Workspace**.
 
